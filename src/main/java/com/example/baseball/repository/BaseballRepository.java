@@ -55,7 +55,6 @@ public class BaseballRepository {
 			Team team = template.queryForObject(loadSql, param, TEAM_ROW_MAPPER);
 			return team;
 		} catch (DataAccessException e) {
-			System.out.println("id:"+id+" のチームはありません");
 			return null;			
 		}
 	}
