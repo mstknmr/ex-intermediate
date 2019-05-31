@@ -5,6 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+  <span th:each="team:${teamList}">
+    <a th:href="@{'showDetail?id='+${team.id}}" th:text="${team.teamName}"></a> <br>
+  </span>
 
 </body>
 </html>

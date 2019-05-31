@@ -1,11 +1,22 @@
 package com.example.baseball.domain;
 
+/**
+ * チーム情報のドメイン.
+ * 
+ * @author knmrmst
+ */
 public class Team {
+	/** チームID*/
 	private Integer id;
+	/** リーグ名*/
 	private String leagueName;
+	/** チーム名*/
 	private String teamName;
+	/** 本拠地*/
 	private String headquarters;
+	/** 発足日*/
 	private String inauguration;
+	/** 歴史*/
 	private String history;
 
 	@Override

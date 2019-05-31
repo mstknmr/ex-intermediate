@@ -4,6 +4,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,22 +55,30 @@ public class BaseballServiceTest {
 	@Test
 	public void baseballServiceTest7() {
 		Team team = baseballService.showDetail(7);
-		assertThat("TC7:期待値と実際の結果が異なります",team,(nullValue()));
+		assertThat("TC7:期待値と実際の結果が異なります",team,is(nullValue()));
 		
 	}
 	@Test
 	public void baseballServiceTest8() {
 		Team team = baseballService.showDetail(-1);
-		assertThat("TC8:期待値と実際の結果が異なります",team,(nullValue()));
+		assertThat("TC8:期待値と実際の結果が異なります",team,is(nullValue()));
 	}
 	@Test
 	public void baseballServiceTest9() {
 		Team team = baseballService.showDetail(0);
-		assertThat("TC8:期待値と実際の結果が異なります",team,(nullValue()));
+		assertThat("TC8:期待値と実際の結果が異なります",team,is(nullValue()));
 	}
 	@Test
 	public void baseballServiceTest10() {
 		Team team = baseballService.showDetail(8);
-		assertThat("TC8:期待値と実際の結果が異なります",team,(nullValue()));
+		assertThat("TC8:期待値と実際の結果が異なります",team,is(nullValue()));
 	}
+	@Test
+	public void baseballServiceTest11() {
+		List<Team> list = baseballService.showTeamList();
+		assertThat("TC9:並び順が違います",list.get(0).getTeamName(),is("読売ジャイアンツ"));
+		assertThat("TC9:並び順が違います",list.get(5).getTeamName(),is("東京ヤクルトスワローズ"));
+		assertThat("TC9:件数が一致しません",list.size(),is(6));
+	}
+	
 }
